@@ -5,19 +5,12 @@ import (
 	"time"
 )
 
-var logger Logger = Logger{
-	mosquitto: "[\033[34;1mMQTT\033[0m]",
-	debug:     "[\033[36mDEBG\033[0m]",
-	warning:   "[\033[33mWARN\033[0m]",
-	error:     "[\033[31mERR\033[0m ]",
-	http:      "[\033[32;1mHTTP\033[0m]"}
-
 type Logger struct {
-	http      string
-	mosquitto string
-	debug     string
-	warning   string
-	error     string
+	http      string `default:"[\033[32;1mHTTP\033[0m]"`
+	mosquitto string `default:"[\033[34;1mMQTT\033[0m]"`
+	debug     string `default:"[\033[36mDEBG\033[0m]"`
+	warning   string `default:"[\033[33mWARN\033[0m]"`
+	error     string `defaylt:"[\033[31mERR\033[0m ]"`
 }
 
 func (L Logger) Http(msg ...any) {
