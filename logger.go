@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+//prefix for logger level
 var http string = "[\033[32;1mHTTP\033[0m]"
 var mosquitto string = "[\033[34;1mMQTT\033[0m]"
 var debug string = "[\033[36mDEBG\033[0m]"
