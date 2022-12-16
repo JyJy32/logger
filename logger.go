@@ -5,36 +5,34 @@ import (
 	"time"
 )
 
-type Logger struct {
-	http      string `default:"[\033[32;1mHTTP\033[0m]"`
-	mosquitto string `default:"[\033[34;1mMQTT\033[0m]"`
-	debug     string `default:"[\033[36mDEBG\033[0m]"`
-	warning   string `default:"[\033[33mWARN\033[0m]"`
-	error     string `defaylt:"[\033[31mERR\033[0m ]"`
-}
+var http string = "[\033[32;1mHTTP\033[0m]"
+var mosquitto string = "[\033[34;1mMQTT\033[0m]"
+var debug string = "[\033[36mDEBG\033[0m]"
+var warning string = "[\033[33mWARN\033[0m]"
+var error string = "[\033[31mERR\033[0m ]"
 
-func (L Logger) Http(msg ...any) {
+func Http(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
-	fmt.Printf("%s %s %v\n", now, L.http, msg)
+	fmt.Printf("%s %s %v\n", now, http, msg)
 }
-func (L Logger) Debug(msg ...any) {
+func Debug(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
-	fmt.Printf("%s %s %v\n", now, L.debug, msg)
+	fmt.Printf("%s %s %v\n", now, debug, msg)
 }
-func (L Logger) Warning(msg ...any) {
+func Warning(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
-	fmt.Printf("%s %s %v\n", now, L.warning, msg)
+	fmt.Printf("%s %s %v\n", now, warning, msg)
 }
-func (L Logger) Error(msg ...any) {
+func Error(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
-	fmt.Printf("%s %s %v\n", now, L.error, msg)
+	fmt.Printf("%s %s %v\n", now, error, msg)
 }
-func (L Logger) Mqtt(msg ...any) {
+func Mqtt(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
-	fmt.Printf("%s %s %v\n", now, L.mosquitto, msg)
+	fmt.Printf("%s %s %v\n", now, mosquitto, msg)
 }
