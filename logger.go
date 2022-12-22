@@ -31,6 +31,7 @@ func Error(msg ...any) {
 	hour, min, sec := time.Now().Clock()
 	now := fmt.Sprintf("%d:%d:%d", hour, min, sec)
 	fmt.Printf("%s %s %v\n", now, error, msg)
+	panic(msg)
 }
 func Mqtt(msg ...any) {
 	hour, min, sec := time.Now().Clock()
