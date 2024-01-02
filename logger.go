@@ -6,12 +6,13 @@ import (
     "time"
 )
 
+//prefix for logger level
 var http string = ""
 var mosquitto string = ""
 var debug string = ""
 var warning string = ""
 var error string = ""
-//prefix for logger level
+
 func Init() {
     if runtime.GOOS == "windows" {
         http = "[HTTP]"
